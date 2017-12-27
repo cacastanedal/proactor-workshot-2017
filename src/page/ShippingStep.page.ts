@@ -9,7 +9,7 @@ export class ShippingStepPage {
     return $('#form > p > button > span');
   }
 
-  public async proceedToCheckout(): Promise<void>{
+  public async proceedToCheckout(): Promise<void> {
     await this.checkTermsService.click();
     await this.checkoutButton.click();
   }
