@@ -9,7 +9,7 @@ export const config: Config = {
   getPageTimeout: 30000,
   seleniumAddress: 'http://localhost:4444/wd/hub',
   onPrepare: () => {
-    browser.manage().timeouts().implicitlyWait(3000);
+    browser.manage().timeouts().implicitlyWait(0);
     browser.ignoreSynchronization = true;
     reporter();
   },
