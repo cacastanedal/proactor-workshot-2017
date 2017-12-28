@@ -120,3 +120,5 @@ $RECYCLE.BIN/
 ## Typescript
 dist
 
+## VSCode ##
+.vscode/
