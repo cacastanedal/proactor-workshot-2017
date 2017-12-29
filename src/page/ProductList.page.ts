@@ -2,7 +2,7 @@ import { $, ElementFinder, promise } from 'protractor';
 
 export class ProductListPage {
   private get tShirtImage(): ElementFinder {
-    return $('#center_column > ul > li > div > div.left-block > div > a.product_img_link > img');
+    return $('ul.product_list > li > div > div.left-block > div > a.product_img_link > img');
   }
 
   public goToTShirtList(): promise.Promise<void> {
