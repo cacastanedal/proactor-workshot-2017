@@ -8,7 +8,7 @@ export const config: Config = {
   noGlobals: true,
   getPageTimeout: 30000,
   onPrepare: () => {
-    browser.manage().timeouts().implicitlyWait(3000);
+    browser.manage().timeouts().implicitlyWait(0);
     browser.ignoreSynchronization = true;
     reporter();
   },
