@@ -25,25 +25,14 @@ describe('Selecting Tshirt to buy', () => {
   const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage;
   const summaryStepPage: SummaryStepPage = new SummaryStepPage;
 
-  it('look for Tshirts', async () => {
+  it('going through process to buy it', async () => {
     await menuContentPage.goToTShirtMenu();
-  });
-
-  it('select first tshirt', async () => {
     await productListPage.goToTShirtList();
-  });
-
-  it('add to cart', async () => {
     await productDetailPage.addToCart();
-  });
-
-  it('proceed to checkout', async () => {
     await productAddedModalPage.proceedToCheckout();
-  });
-
-  it('confirm summary', async () => {
     await summaryStepPage.proceedToCheckout();
   });
+
 });
 
 describe('Logging in', () => {
@@ -56,16 +45,10 @@ describe('Logging in', () => {
 
 describe('Confirm the default address', () => {
   const addressStepPage: AddressStepPage = new AddressStepPage;
-
-  it('proceed to checkout', async () => {
-    await addressStepPage.proceedToCheckout();
-  });
-});
-
-describe('Shipping options', () => {
   const shippingStepPage: ShippingStepPage = new ShippingStepPage;
-  
-  it('agree with terms and proceed', async () => {
+
+  it('shipping and address ready', async () => {
+    await addressStepPage.proceedToCheckout();
     await shippingStepPage.proceedToCheckout();
   });
 });
@@ -73,22 +56,14 @@ describe('Shipping options', () => {
 describe('Bank payment', async () => {
   const paymentStepPage: PaymentStepPage = new PaymentStepPage;
   const bankPaymentPage: BankPaymentPage = new BankPaymentPage;
-
-  it('pay through wire transfer', async () => {
-    await paymentStepPage.selectPaymentMethod();
-  });
-
-  it('confirm payment', async () => {
-    await bankPaymentPage.confirmOrder();
-  });
-});
-
-describe('Tshirt bought', () => {
   const orderResumePage: OrderResumePage = new OrderResumePage;
 
-  it('confirmation message', async () => {
+  it('payment ok and order completed', async () => {
+    await paymentStepPage.selectPaymentMethod();
+    await bankPaymentPage.confirmOrder();
     await expect(orderResumePage.getConfirmationText())
      .toBe('Your order on My Store is complete.');
   });
+
 });
 
