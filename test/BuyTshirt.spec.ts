@@ -19,69 +19,74 @@ describe('Open page in browser',  () => {
 });
 
 describe('Selecting Tshirt to buy', () => {
-  
+  const menuContentPage: MenuContentPage = new MenuContentPage();
+  const productListPage: ProductListPage = new ProductListPage();
+  const productDetailPage: ProductDetailPage = new ProductDetailPage;
+  const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage;
+  const summaryStepPage: SummaryStepPage = new SummaryStepPage;
+
   it('look for Tshirts', async () => {
-    const menuContentPage: MenuContentPage = new MenuContentPage();
     await menuContentPage.goToTShirtMenu();
   });
 
   it('select first tshirt', async () => {
-    const productListPage: ProductListPage = new ProductListPage();
     await productListPage.goToTShirtList();
   });
 
   it('add to cart', async () => {
-    const productDetailPage: ProductDetailPage = new ProductDetailPage;
     await productDetailPage.addToCart();
   });
 
   it('proceed to checkout', async () => {
-    const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage;
     await productAddedModalPage.proceedToCheckout();
   });
 
   it('confirm summary', async () => {
-    const summaryStepPage: SummaryStepPage = new SummaryStepPage;
     await summaryStepPage.proceedToCheckout();
   });
 });
 
 describe('Logging in', () => {
+  const signInStepPage: SignInStepPage = new SignInStepPage;
+
   it('typing user and password', async() => {
-    const signInStepPage: SignInStepPage = new SignInStepPage;
     await signInStepPage.signIn('aperdomobo@gmail.com', 'WorkshopProtractor');  
   });
 });
 
 describe('Confirm the default address', () => {
+  const addressStepPage: AddressStepPage = new AddressStepPage;
+
   it('proceed to checkout', async () => {
-    const addressStepPage: AddressStepPage = new AddressStepPage;
     await addressStepPage.proceedToCheckout();
   });
 });
 
 describe('Shipping options', () => {
+  const shippingStepPage: ShippingStepPage = new ShippingStepPage;
+  
   it('agree with terms and proceed', async () => {
-    const shippingStepPage: ShippingStepPage = new ShippingStepPage;
     await shippingStepPage.proceedToCheckout();
   });
 });
 
 describe('Bank payment', async () => {
+  const paymentStepPage: PaymentStepPage = new PaymentStepPage;
+  const bankPaymentPage: BankPaymentPage = new BankPaymentPage;
+
   it('pay through wire transfer', async () => {
-    const paymentStepPage: PaymentStepPage = new PaymentStepPage;
     await paymentStepPage.selectPaymentMethod();
   });
 
   it('confirm payment', async () => {
-    const bankPaymentPage: BankPaymentPage = new BankPaymentPage;
     await bankPaymentPage.confirmOrder();
   });
 });
 
 describe('Tshirt bought', () => {
+  const orderResumePage: OrderResumePage = new OrderResumePage;
+
   it('confirmation message', async () => {
-    const orderResumePage: OrderResumePage = new OrderResumePage;
     await expect(orderResumePage.getConfirmationText())
      .toBe('Your order on My Store is complete.');
   });
