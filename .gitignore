@@ -122,3 +122,6 @@ dist
 
 ## VSCode ##
 .vscode/
+
+## jasmine-awesome-report ##
+reports/

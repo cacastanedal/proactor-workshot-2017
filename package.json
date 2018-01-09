@@ -4,7 +4,7 @@
   "description": "This is a Workshop about Protractor",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist reports",
     "prebuild": "npm run clean",
     "build": "tsc",
     "test": "npm run test:headless",
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@types/jasminewd2": "^2.0.3",
+    "jasmine-awesome-report": "0.0.3",
     "jasmine-spec-reporter": "^4.2.1",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
