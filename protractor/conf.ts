@@ -7,7 +7,6 @@ export const config: Config = {
   specs: ['../test/**/*.spec.js'],
   noGlobals: true,
   getPageTimeout: 30000,
-  seleniumAddress: 'http://localhost:4444/wd/hub',
   onPrepare: () => {
     browser.manage().timeouts().implicitlyWait(0);
     browser.ignoreSynchronization = true;
