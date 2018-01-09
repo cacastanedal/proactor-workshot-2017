@@ -9,8 +9,3 @@ node_js:
 branches:
 except:
 - /^v\d+\.\d+\.\d+$/
-addons:
-  apt:
-    packages:
-      - google-chrome-stable
-
