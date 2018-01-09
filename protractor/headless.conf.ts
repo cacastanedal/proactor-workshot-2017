@@ -22,4 +22,3 @@ export const config: Config = {
     defaultTimeoutInterval: 120000
   },
 };
-
