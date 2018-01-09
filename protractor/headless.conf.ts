@@ -1,24 +1,25 @@
 import { browser, Config } from 'protractor';
-import { reporter }   from './helpers/reporter';
+import { reporter } from './helpers/reporter';
 
-export const config: Config = {
+export let config: Config = {
   framework: 'jasmine',
-  SELENIUM_PROMISE_MANAGER: false,
   specs: ['../test/**/*.spec.js'],
+  SELENIUM_PROMISE_MANAGER: false,
   noGlobals: true,
   getPageTimeout: 30000,
-  onPrepare: () => {
-    browser.manage().timeouts().implicitlyWait(0);
-    browser.ignoreSynchronization = true;
-    reporter();
+  jasmineNodeOpts: {
+    defaultTimeoutInterval: 120000 
   },
   capabilities: {
- 	browserName: 'chrome',
- 	chromeOptions: {
- 		args: ['--headless', '--disable-gpu', '--window-size=800,600'],
- 	},
+    browserName: 'chrome',
+    chromeOptions: {
+      args: ['--headless', '--disable-gpu', '--window-size=800,600']
+    }
   },
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 120000
-  },
+  onPrepare: () => {
+    reporter();
+    browser.ignoreSynchronization = true;
+    browser.manage().timeouts().implicitlyWait(0);
+  }
 };
+
