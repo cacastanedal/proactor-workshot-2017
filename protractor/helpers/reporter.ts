@@ -14,4 +14,3 @@ export let reporter = () => {
 
   jasmine.getEnv().addReporter(AwesomeReport.getReport(config));
 };
-
