@@ -67,11 +67,3 @@ describe('Open page in browser',  () => {
     });
   });
 });
-
-
-
-
-
-
-
-
