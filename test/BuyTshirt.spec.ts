@@ -60,7 +60,7 @@ describe('Open page in browser',  () => {
   
           it('payment ok and order completed', async () => {
             await expect(orderResumePage.getConfirmationText())
-             .toBe('Your order on My Store is complete.');
+             .toBe('Your order on My Store is complete.ERRASE_THIS');
           });
         });
       });
