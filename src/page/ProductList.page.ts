@@ -1,11 +1,21 @@
-import { $, ElementFinder, promise } from 'protractor';
+import { $$, ElementFinder, promise, ElementArrayFinder } from 'protractor';
 
 export class ProductListPage {
-  private get tShirtImage(): ElementFinder {
-    return $('.product_img_link');
+  private get productContainerList(): ElementArrayFinder {
+    return $$('.product-container');
   }
 
-  public goToTShirtList(): promise.Promise<void> {
-    return this.tShirtImage.click();
+  private findByProduct(name: string): ElementFinder {
+    return this.productContainerList
+      .filter((item: ElementFinder) => 
+        item
+          .$('.product-name')
+          .getText()
+          .then((text: string) => text.includes(name)))
+      .first();
+  }
+
+  public selectProduct(pruductName: string): promise.Promise<void> {
+    return this.findByProduct(pruductName).click();
   }
 }
