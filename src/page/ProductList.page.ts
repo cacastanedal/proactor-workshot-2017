@@ -2,7 +2,7 @@ import { $$, ElementFinder, promise, ElementArrayFinder } from 'protractor';
 
 export class ProductListPage {
   private get productContainerList(): ElementArrayFinder {
-    return $$('.product_list > li');
+    return $$('.product-container');
   }
 
   private findByProduct(name: string): ElementFinder {
