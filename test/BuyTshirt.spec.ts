@@ -26,7 +26,7 @@ describe('Open page in browser',  () => {
   
     beforeAll(async () => {
       await menuContentPage.goToTShirtMenu();
-      await productListPage.goToTShirtList();
+      await productListPage.selectProduct('Faded Short Sleeve T-shirts');
       await productDetailPage.addToCart();
       await productAddedModalPage.proceedToCheckout();
       await summaryStepPage.proceedToCheckout();
